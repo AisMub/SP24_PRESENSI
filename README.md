@@ -30,5 +30,5 @@ Sebelum menjalankan aplikasi ini, pastikan Anda memiliki:
 
 ### 1. Clone Repositori
 ```bash
-git clone [https://github.com/bayu242/SP24_NFC_READER.git](https://github.com/bayu242/SP24_NFC_READER.git)
-cd SP24_NFC_READER
+git clone https://github.com/AisMub/SP24_PRESENSI.git
+cd SP24_PRESENSI
