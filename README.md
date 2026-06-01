@@ -1,4 +1,4 @@
-# SP24 NFC Reader 📱📡
+# SP24 PRESENSI 📱📡
 
 SP24 NFC Reader adalah aplikasi mobile berbasis **React Native (Expo)** yang berfungsi sebagai *bridge* (jembatan) untuk membaca kartu NFC dan mengirimkan data Tag ID secara *real-time* ke aplikasi Web/Browser menggunakan **Socket.io**.
 
