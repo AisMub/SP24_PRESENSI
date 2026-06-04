@@ -14,10 +14,8 @@ import {
 import { useRouter } from 'expo-router';
 import { useAuth } from '../context/AuthContext';
 import { COLORS } from '../constants/colors';
-import { UserRole } from '../services/authService';
 
 export default function LoginScreen() {
-  const [role, setRole] = useState<UserRole>('TEACHER');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -31,12 +29,8 @@ export default function LoginScreen() {
     }
     setLoading(true);
     try {
-      await login(role, username.trim(), password);
-      if (role === 'ADMIN') {
-        router.replace('/(admin)');
-      } else {
-        router.replace('/(teacher)');
-      }
+      await login('TEACHER', username.trim(), password);
+      router.replace('/(teacher)');
     } catch (e: any) {
       Alert.alert('Login Gagal', e.message ?? 'Periksa kembali username dan password Anda.');
     } finally {
@@ -61,22 +55,6 @@ export default function LoginScreen() {
 
       {/* Card Form */}
       <View style={styles.card}>
-        {/* Role Selector */}
-        <Text style={styles.label}>Masuk Sebagai</Text>
-        <View style={styles.roleRow}>
-          {(['TEACHER', 'ADMIN'] as UserRole[]).map(r => (
-            <TouchableOpacity
-              key={r}
-              style={[styles.roleBtn, role === r && styles.roleBtnActive]}
-              onPress={() => setRole(r)}
-            >
-              <Text style={[styles.roleBtnText, role === r && styles.roleBtnTextActive]}>
-                {r === 'ADMIN' ? 'Administrator' : 'Guru'}
-              </Text>
-            </TouchableOpacity>
-          ))}
-        </View>
-
         {/* Username */}
         <Text style={styles.label}>Username</Text>
         <TextInput
@@ -171,29 +149,6 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     letterSpacing: 0.5,
   },
-  roleRow: {
-    flexDirection: 'row',
-    gap: 10,
-    marginBottom: 20,
-  },
-  roleBtn: {
-    flex: 1,
-    paddingVertical: 10,
-    borderRadius: 10,
-    borderWidth: 1.5,
-    borderColor: COLORS.border,
-    alignItems: 'center',
-  },
-  roleBtnActive: {
-    backgroundColor: COLORS.primary,
-    borderColor: COLORS.primary,
-  },
-  roleBtnText: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: COLORS.textMuted,
-  },
-  roleBtnTextActive: { color: COLORS.white },
   input: {
     borderWidth: 1.5,
     borderColor: COLORS.border,

@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "SP24_NFC_READER",
-    "slug": "SP24_NFC_READER",
+    "name": "SP24_PRESENSI",
+    "slug": "SP24_PRESENSI",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "sp24nfcreader",
+    "scheme": "sp24presensi",
     "userInterfaceStyle": "automatic",
     "ios": {
       "supportsTablet": true
@@ -18,7 +18,7 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "predictiveBackGestureEnabled": false,
-      "package": "com.anonymous.SP24_NFC_READER",
+      "package": "com.anonymous.SP24_PRESENSI",
       "permissions": ["android.permissions.NFC"]
     },
     "web": {
@@ -41,7 +41,7 @@
       ],
       [
         "react-native-nfc-manager",{
-          "nfcPermission" : "Izinkan sp24nfcreader untuk menggunakan NFC"
+          "nfcPermission" : "Izinkan sp24presensi untuk menggunakan NFC"
         }
       ]
     ],
